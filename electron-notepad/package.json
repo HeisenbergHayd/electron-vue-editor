@@ -1,0 +1,33 @@
+{
+  "name": "electron-notepad",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "vite",
+    "build": "vue-tsc && vite build",
+    "preview": "vite preview",
+    "electron:dev": "concurrently \"npm run dev\" \"wait-on http://localhost:5173 && cross-env NODE_ENV=development electron electron-main/main.cjs\"",
+    "electron:build": "vue-tsc && vite build && electron-builder",
+    "electron:preview": "electron-builder --dir"
+  },
+  "dependencies": {
+    "@vueuse/core": "^10.7.0",
+    "electron-updater": "^6.1.7",
+    "pinia": "^2.1.7",
+    "vue": "^3.3.4",
+    "vue-router": "^4.2.5"
+  },
+  "devDependencies": {
+    "@types/node": "^20.10.4",
+    "@vitejs/plugin-vue": "^4.5.0",
+    "concurrently": "^8.2.2",
+    "cross-env": "^7.0.3",
+    "electron": "^28.0.0",
+    "electron-builder": "^24.9.1",
+    "typescript": "^5.3.3",
+    "vite": "^5.0.0",
+    "vue-tsc": "^1.8.25",
+    "wait-on": "^7.2.0"
+  },
+  "main": "electron-main/main.cjs"
+}

@@ -1,0 +1,39 @@
+appId: com.electron.notepad
+productName: Desktop Notepad
+copyright: Copyright © 2024
+
+directories:
+  output: dist_electron
+  buildResources: build
+
+files:
+  - dist/**/*
+  - electron-main/**/*
+
+mac:
+  category: public.app-category.productivity
+  target:
+    - dmg
+    - pkg
+  entitlements: build/entitlements.mac.plist
+  entitlementsInherit: build/entitlements.mac.plist
+  hardenedRuntime: true
+  gatekeeperAssess: false
+  identity: null
+
+win:
+  target:
+    - target: nsis
+      arch:
+        - x64
+        - arm64
+
+nsis:
+  oneClick: false
+  allowToChangeInstallationDirectory: true
+  createDesktopShortcut: true
+  createStartMenuShortcut: true
+
+publish:
+  provider: github
+  releaseType: release 
